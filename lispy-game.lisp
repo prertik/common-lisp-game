@@ -49,10 +49,10 @@
 (defun inventory ()
   (cons 'items- (objects-at 'body *objects* *object-locations*)))
 (defun game-repl ()
-  ((cmd (game-read)))
+ (let ((cmd (game-read)))
   (unless (eq (car cmd) 'quit)
     (game-print (game-eval cmd))
-    (game-repl)))
+    (game-repl))))
 (defun game-read ()
   (let ((cmd (read-from-string
               (concatenate 'string "(" (read-line) ")"))))
