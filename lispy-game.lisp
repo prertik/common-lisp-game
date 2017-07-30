@@ -74,7 +74,7 @@
             ((eq item #\") (tweak-text rest caps (not lit)))
             (lit (cons item (tweak-text rest nil lit)))
             ((or caps lit) (cons (char-upcase item) (tweak-text rest nil lit)))
-            (t (cons (char-downcase item) (tweak-test rest nil nil)))))))
+            (t (cons (char-downcase item) (tweak-text rest nil nil)))))))
 (defun game-print (lst)
   (princ (coerce (tweak-text (coerce (string-trim "() "
                                                   (prin1-to-string lst))
